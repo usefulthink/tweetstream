@@ -1,0 +1,243 @@
+@CHARSET "UTF-8";
+
+/* ~~~~ fonts declarations */
+/*
+ * since i haven't checked the license terms for the fonts used in the
+ * installation, these are at first excluded from the repository...
+ * 
+ * Note: http://dafont.com is alway a good source...
+ */
+/*
+@font-face {
+	font-family: 'dinot_regular';
+	src: url('fonts/DINOT-Regular.otf');
+}
+@font-face {
+	font-family: 'dinot_medium';
+	src: url('fonts/DINOT-Medium.otf');
+}
+
+@font-face {
+	font-family: 'existence_light';
+	src: url('fonts/existence_light.ttf');
+}
+	*/
+
+
+/* ~~~~ the basics */ 
+body {
+  color: white;
+  background: black;
+  font-family: dinot_regular,Arial,Verdana,sans-serif;
+  overflow: hidden;
+  font-size: 12px;
+}
+.clear { clear: both; width: 0; height: 0; }
+
+/* centered  content, fixed width */
+.tweets {
+	width: 800px;
+	margin: 0 auto;
+}
+
+/* js-templates */
+.template { display: none; }
+
+
+/* ~~~~ STRUCTURAL ELEMENTS */
+/* ~~~~ header */
+.head {
+	font-size: 45px;
+	width: 318px;
+	margin: 0 auto 20px;
+}
+
+/* ~~~~ sidebox */
+.aside {
+	color: #ddd;
+	position: absolute;
+	left: 0; bottom: 20%;
+	width: 160px;
+	font-size: 11px;
+	padding: 5px;
+	background: #444 url(img/bg_tweet.png) repeat-x bottom;
+	
+	z-index: 100;
+	opacity: 0.7;
+	border: 3px solid #888;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	
+	-moz-border-bottom-colors: #bbb #666;
+	-moz-border-top-colors: #bbb #666;
+	-moz-border-right-colors: #bbb #666;
+}
+.aside strong {
+	color: white;
+	font-size: 12px;
+}
+.aside a {
+	color: white;
+}
+/* ~~~~ footer */
+.footer {
+	position: fixed; bottom: 20px; right: 20px;
+	width: 120px; height: 70px;
+	padding: 5px 10px 10px;
+
+	border: 1px solid #666;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+.footer .poweredBy {
+	width: 100%; float: left; margin-bottom: 8px;
+}
+.footer .logo_smag {
+	width: 48px; height: 48px;
+	display: block; overflow: hidden; text-indent: -9999px;
+	background: transparent url(img/bg_logo_smag.png) no-repeat;
+	float: left;
+}
+.footer .logo_twitter {
+	width: 48px; height: 48px;
+	display: block; overflow: hidden; text-indent: -9999px;
+	background: transparent url(img/bg_logo_twitter.png) no-repeat;
+	float: right;
+}
+
+/* ~~~~ tweet base-definition. */
+.tweet {
+	width: 776px;
+	min-height: 80px;
+	float: left;
+	border: 2px solid;
+	-moz-border-radius: 20px 20px 20px 0px;
+	-webkit-border-radius: 20px 20px 20px 0px;
+	
+	padding: 10px 20px 5px 5px;
+	margin-bottom: 15px;
+	position: relative;
+	
+	background: transparent url(img/bg_tweet.png) repeat-x bottom;
+}
+
+.tweet .leftPart {
+	width: 70px;
+}
+
+.tweet .rightPart {
+	width: 700px;
+	margin-left: 70px;
+}
+
+/* ~~~~ tweet-details */
+.tweet * {
+	display: block;
+	float: left;
+}
+
+.tweet img {
+	border: 1px solid white;
+	width: 50px; float: left;
+	position: absolute; bottom: 23px; left: 13px;	 
+}
+
+.tweet .message {
+	font-family: 'dinot_medium';
+	width: 100%;
+	font-size: 18px;
+	text-shadow: 1px 1px 2px #333;
+}
+/* nice css3-feature :) */
+.tweet .message::first-letter {}
+
+.tweet.colored .message {
+	font-size: 22px;
+}
+
+.tweet .signature {
+	float: right;
+	font-size: 12px;
+	color: #ddd;
+}
+
+.tweet .author {
+	font-family: dinot_medium;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+.tweet.colored {
+	width: 770px;
+	border-width: 4px;
+}
+
+/* ~~~~ tweet color-definitions */
+.tweet.t1 {
+	-moz-border-bottom-colors: #333 #666 #fff #6c9d20;
+	-moz-border-top-colors: #333 #666 #fff #6c9d20;
+	-moz-border-left-colors: #333 #666 #fff #6c9d20;
+	-moz-border-right-colors: #333 #666 #fff #6c9d20;
+	
+	border-color: #6c9d20;
+	background-color: #85c128;
+}
+
+.tweet.t2 {
+	-moz-border-bottom-colors: #333 #666 #fff #24605c;
+	-moz-border-top-colors: #333 #666 #fff #24605c;
+	-moz-border-left-colors: #333 #666 #fff #24605c;
+	-moz-border-right-colors: #333 #666 #fff #24605c;
+	
+	border-color: #24605c;
+	background-color: #3da49d;
+}
+
+.tweet.t3 {
+	-moz-border-bottom-colors: #333 #666 #fff #1c3d3b;
+	-moz-border-top-colors: #333 #666 #fff #1c3d3b;
+	-moz-border-left-colors: #333 #666 #fff #1c3d3b;
+	-moz-border-right-colors: #333 #666 #fff #1c3d3b;
+	
+	border-color: #1c3d3b;
+	background-color: #3b807b;
+}
+
+.tweet.t4 {
+	-moz-border-bottom-colors: #333 #666 #fff #3e3a41;
+	-moz-border-top-colors: #333 #666 #fff #3e3a41;
+	-moz-border-left-colors: #333 #666 #fff #3e3a41;
+	-moz-border-right-colors: #333 #666 #fff #3e3a41;
+	
+	border-color: #3e3a41;
+	background-color: #6c6672;
+}
+
+.tweet.t5 {
+	-moz-border-bottom-colors: #333 #666 #fff #7a5779;
+	-moz-border-top-colors: #333 #666 #fff #7a5779;
+	-moz-border-left-colors: #333 #666 #fff #7a5779;
+	-moz-border-right-colors: #333 #666 #fff #7a5779;
+	
+	border-color: #7a5779;
+	background-color: #c088be;
+}
+
+.tweet.t6 {
+	-moz-border-bottom-colors: #333 #666 #fff #250c22;
+	-moz-border-top-colors: #333 #666 #fff #250c22;
+	-moz-border-left-colors: #333 #666 #fff #250c22;
+	-moz-border-right-colors: #333 #666 #fff #250c22;
+	
+	border-color: #250c22;
+	background-color: #4b1846;
+}
+.tweet.t7 {
+	-moz-border-bottom-colors: #333 #666 #fff #220f25;
+	-moz-border-top-colors: #333 #666 #fff #220f25;
+	-moz-border-left-colors: #333 #666 #fff #220f25;
+	-moz-border-right-colors: #333 #666 #fff #220f25;
+	
+	border-color: #220f25;
+	background-color: #512558;
+}

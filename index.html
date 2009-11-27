@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tweetstream</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/tweetstream.css"></link>
+	</head>
+	<body>
+		<h1 class="head searchTerm"></h1>
+		
+		<div class="aside">
+			<p>This page displays the twitter search-results for the seachTerm
+			<strong class="searchTerm"></strong>.</p>
+			
+			<p>It was basically created as a case-study on the capabilities of
+			css3 in modern browers. Therefore, it doesn't look good (let
+			alone work at all) on IE*. I'm working on full support for
+			Webkit-Browsers (it works but doesn't look as good as it could).</p>
+			
+			<p>I have to thank <strong>@amyhoy</strong> for the inspiration she gave me with
+			her awesome work <a href="http://twistori.com">Twistori</a>.</p>
+		</div>
+		
+		<div class="tweets">
+			<!-- js-template -->
+			<div class="tweet template">
+				<div class="leftPart image">
+				</div>
+				<div class="rightPart">
+					<span class="message"></span>
+					<div class="signature">
+						<span class="author"></span> 
+						<span class="timestamp"></span>
+					</div>
+				</div>
+				
+				<div class="clear"><!-- --></div>
+			</div>
+		</div>
+		
+		<div class="footer">
+			<span class="poweredBy">powered by:</span>
+			<span class="logo_smag">spot-media AG</span>
+			<span class="logo_twitter">twitter</span>
+			<div class="clear"><!-- --></div>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
+		<script type="text/javascript" src="js/tweetstream.js"></script>
+		<script type="text/javascript">
+			jQuery(function($) {
+				var searchTerm = 'smag';
+				$('.searchTerm').html(searchTerm);
+				
+				$.twitter.startSearching(searchTerm);
+			});
+		</script>
+	</body>
+</html>
