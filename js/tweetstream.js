@@ -105,7 +105,7 @@ jQuery(function($) {
 					
 					$('.tweet').fadeOut(5000, function() {
 						$('.tweet').remove();
-						twitter.startSearching();
+						twitter.startSearching(twitter.SEARCH_TERM);
 					});
 				}
 				
